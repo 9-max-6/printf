@@ -12,13 +12,16 @@ int _printf(const char *format, ...)
 {
 	int i;
 	va_list _args;
-	int _chars;
+	char c;
+	int _chars, num_bytes;
+	
+	va_start(_args, format);
 
 	if (format == NULL)
 	{
 		return (-1);
 	}
-	_chars = 0;
+	_chars = num_bytes = 0;
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
@@ -29,12 +32,11 @@ int _printf(const char *format, ...)
 				_putchar(format[i]);
 				i++;
 			}
-			else
+			if (format[i + 1] == 'c' || format[i + 1] =='s')
 			{
-				if (format[i + 1] == 'c')
-					_chars = print_char(_args, format);
-				if (format[i + 1] == 's')
-					_chars = print_str(_args, format);
+				c = format[i + 1];
+				_chars = (*printing(c))(_args);
+				i++;
 			}
 		}
 		else
@@ -42,8 +44,8 @@ int _printf(const char *format, ...)
 			_putchar(format[i]);
 		}
 	}
-
-	return (i);
+	num_bytes = i + _chars;
+	return (num_bytes);
 }
 
 
