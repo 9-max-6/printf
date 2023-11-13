@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 			if (format[i + 1] == '%')
 			{
 				num_bytes++;
-				_putchar(format[i]);
+				write(1, &format[i], 1);
 				i++;
 			}
 			if (format[i + 1] == 'c' || format[i + 1] == 's')
@@ -43,7 +43,7 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			_putchar(format[i]);
+			write(1, &format[i], 1);
 			num_bytes++;
 		}
 	}
