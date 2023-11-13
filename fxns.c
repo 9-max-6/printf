@@ -9,6 +9,7 @@ int print_int(va_list _args)
 {
 	int num;
 	int k = 0;
+
 	num = va_arg(_args, int);
 	if (num < 0)
 	{
@@ -34,6 +35,7 @@ int print_int(va_list _args)
 int print_positive_int(int num)
 {
 	int count = 0;
+
 	if (num / 10 != 0)
 	{
 		count += print_positive_int(num / 10);
@@ -42,7 +44,7 @@ int print_positive_int(int num)
 	return (count + 1);
 }
 /**
-i * print_char - prints a character
+ * print_char - prints a character
  * @_args: list of variadic functions
  *
  * Return: characters printed
@@ -50,6 +52,7 @@ i * print_char - prints a character
 int print_char(va_list _args)
 {
 	char ch;
+
 	ch = va_arg(_args, int);
 
 	if (ch == '\0')
