@@ -16,13 +16,9 @@ int _printf(const char *format, ...)
 	int _chars, num_bytes;
 
 	va_start(_args, format);
-
 	if (format == NULL)
-	{
-		return (0);
-	}
+		return (-1);
 	_chars = num_bytes = 0;
-
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
@@ -33,7 +29,8 @@ int _printf(const char *format, ...)
 				write(1, &format[i], 1);
 				i++;
 			}
-			else if (format[i + 1] == 'c' || format[i + 1] == 's'|| format[i + 1] == 'd' || format[i + 1] == 'i')
+			else if (format[i + 1] == 'c' || format[i + 1] == 's'
+					|| format[i + 1] == 'd' || format[i + 1] == 'i')
 			{
 				c = format[i + 1];
 				_chars = (*printing(c))(_args);
@@ -54,4 +51,3 @@ int _printf(const char *format, ...)
 	}
 	return (num_bytes);
 }
-
