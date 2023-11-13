@@ -53,7 +53,7 @@ int print_char(va_list _args)
 	char ch;
 
 	ch = va_arg(_args, int);
-	_putchar(ch);
+	write(1, &ch, 1);
 	return (1);
 }
 
@@ -70,10 +70,11 @@ int print_str(va_list _args)
 	char *str;
 
 	str = va_arg(_args, char *);
-
+	if (str == NULL)
+		return (0);
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		_putchar(str[i]);
+		write(1, &str[i], 1);
 	}
 
 	return (i);

@@ -19,7 +19,7 @@ int _printf(const char *format, ...)
 
 	if (format == NULL)
 	{
-		return (-1);
+		return (0);
 	}
 	_chars = num_bytes = 0;
 
@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 			if (format[i + 1] == '%')
 			{
 				num_bytes++;
-				_putchar(format[i]);
+				write(1, &format[i], 1);
 				i++;
 			}
 			else if (format[i + 1] == 'c' || format[i + 1] == 's'|| format[i + 1] == 'd' || format[i + 1] == 'i')
@@ -48,7 +48,7 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			_putchar(format[i]);
+			write(1, &format[i], 1);
 			num_bytes++;
 		}
 	}
