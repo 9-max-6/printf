@@ -1,6 +1,49 @@
 #include "main.h"
 /**
- * print_char - prints a character
+ * print_int - prints an integer
+ * @_args: list of variadic fxn arguments
+ *
+ * Return: number of printed digit
+ */
+int print_int(va_list _args)
+{
+	int num;
+	int k = 0;
+	num = va_arg(_args, int);
+
+	if (num < 0)
+	{
+		_putchar('-');
+		k++;
+		num = -num;
+	}
+	if (num == 0)
+	{
+		_putchar('0');
+		k++;
+		return (k);
+	}
+	k += print_positive_int(num);
+	return (k);
+}
+/**
+ * print_positive_int - prints positive integers
+ * @num: integer
+ *
+ * Return: positive integers
+ */
+int print_positive_int(int num)
+{
+	int count = 0;
+	if (num / 10 != 0)
+	{
+		count += print_positive_int(num / 10);
+	}
+	_putchar(num % 10 + '0');
+	return (count + 1);
+}
+/**
+i * print_char - prints a character
  * @_args: list of variadic functions
  *
  * Return: characters printed

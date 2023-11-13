@@ -33,12 +33,17 @@ int _printf(const char *format, ...)
 				write(1, &format[i], 1);
 				i++;
 			}
-			if (format[i + 1] == 'c' || format[i + 1] == 's')
+			else if (format[i + 1] == 'c' || format[i + 1] == 's'|| format[i + 1] == 'd' || format[i + 1] == 'i')
 			{
 				c = format[i + 1];
 				_chars = (*printing(c))(_args);
 				i++;
 				num_bytes += _chars;
+			}
+			else
+			{
+				_putchar('%');
+				num_bytes++;
 			}
 		}
 		else
@@ -49,5 +54,4 @@ int _printf(const char *format, ...)
 	}
 	return (num_bytes);
 }
-
 

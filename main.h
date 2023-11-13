@@ -17,7 +17,8 @@ int _putchar(char c);
 int print_char(va_list _args);
 int print_str(va_list _args);
 int (*printing(char c))(va_list);
-
+int print_int(va_list _args);
+int print_positive_int(int num);
 /**
  * struct Ops - a structure with op-fn pairs
  * @spec: the specifier
