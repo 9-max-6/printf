@@ -10,7 +10,8 @@ int print_int(va_list _args)
 	int num;
 	int k = 0;
 	num = va_arg(_args, int);
-
+	if (num > INT_MAX)
+		return (-1);
 	if (num < 0)
 	{
 		_putchar('-');
@@ -51,8 +52,10 @@ i * print_char - prints a character
 int print_char(va_list _args)
 {
 	char ch;
-
 	ch = va_arg(_args, int);
+
+	if (c == '\0')
+		return (-1);
 	write(1, &ch, 1);
 	return (1);
 }
@@ -71,7 +74,12 @@ int print_str(va_list _args)
 
 	str = va_arg(_args, char *);
 	if (str == NULL)
+	{
+		str = "null";
+		for (i = 0; str[i] != '\0'; i++)
+			write(1, &str[i], 1);
 		return (-1);
+	}
 	for (i = 0; str[i] != '\0'; i++)
 	{
 		write(1, &str[i], 1);
