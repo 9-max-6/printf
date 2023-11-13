@@ -14,7 +14,7 @@ int _printf(const char *format, ...)
 	va_list _args;
 	char c;
 	int _chars, num_bytes;
-	
+
 	va_start(_args, format);
 
 	if (format == NULL)
@@ -29,22 +29,24 @@ int _printf(const char *format, ...)
 		{
 			if (format[i + 1] == '%')
 			{
+				num_bytes++;
 				_putchar(format[i]);
 				i++;
 			}
-			if (format[i + 1] == 'c' || format[i + 1] =='s')
+			if (format[i + 1] == 'c' || format[i + 1] == 's')
 			{
 				c = format[i + 1];
 				_chars = (*printing(c))(_args);
 				i++;
+				num_bytes += _chars;
 			}
 		}
 		else
 		{
 			_putchar(format[i]);
+			num_bytes++;
 		}
 	}
-	num_bytes = i + _chars;
 	return (num_bytes);
 }
 

@@ -10,11 +10,10 @@
 
 int (*printing(char c))(va_list)
 {
-	black_ops op[] = 
-	{
-		{'s' , print_str},
-		{'c' , print_char},
-		{'\0' , NULL}
+	black_ops op[] = {
+		{'s', print_str},
+		{'c', print_char},
+		{'\0', NULL}
 	};
 	int i;
 
