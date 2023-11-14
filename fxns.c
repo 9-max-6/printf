@@ -111,7 +111,7 @@ int print_ui(va_list _args)
 	}
 	if (num > 0)
 	{
-		k += print_positive_int(num);
+		k += print_positive_ui(num);
 		return (k);
 	}
 	return (0);
