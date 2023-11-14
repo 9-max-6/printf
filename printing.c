@@ -17,6 +17,9 @@ int (*printing(char c))(va_list)
 		{'d', print_int},
 		{'b', print_bin},
 		{'u', print_ui},
+		{'o', print_octal},
+		{'x', print_hex},
+		{'X', print_Hex},
 		{'\0', NULL}
 	};
 	int i;
