@@ -19,9 +19,12 @@ int __non_print(char c, va_list _args)
 	{
 		if (ptr[i] == c)
 		{
-			write(1, "\x0", 2);
+			write(1, "\\", 1);
+			write(1, "x", 1);
+
 			num_bytes += 2;
 			num_bytes += __non_hex(c);
+			i++;
 		}
 		_putchar(ptr[i]);
 		num_bytes++;
