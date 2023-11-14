@@ -49,5 +49,6 @@ int _printf(const char *format, ...)
 			num_bytes++;
 		}
 	}
+	va_end(_args);
 	return (num_bytes);
 }
