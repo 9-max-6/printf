@@ -33,7 +33,7 @@ int _printf(const char *format, ...)
 			{
 				if (format[i + 1] == 'S')
 				{
-					_chars += __non_print(format[i + 2], _args);
+					num_bytes += __non_print(format[i + 2], _args);
 					i += 2;
 				}
 				else 
