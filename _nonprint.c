@@ -22,9 +22,12 @@ int __non_print(char c, va_list _args)
 		{
 			write(1, "\\", 1);
 			write(1, "x", 1);
-			if (ptr[i] < 16)
-				write(1, "0", 1);
 			num_bytes += 2;
+			if (ptr[i] < 16)
+			{
+				write(1, "0", 1);
+				num_bytes++;;
+			}
 			num_bytes += __non_hex(c);
 			i++;
 		}
