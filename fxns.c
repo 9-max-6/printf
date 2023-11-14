@@ -89,7 +89,26 @@ int print_str(va_list _args)
 	return (i);
 }
 
+/**
+ * print_ui - a function to print an unsigned int;
+ * @_args: the list of arguments
+ * 
+ * Return: the number of characters printed.
+ */
 
+int print_ui(va_list _args)
+{
+	unsigned int num;
+	int i;
+
+	num = va_arg(_args, unsigned int);
+
+	if (num > 0)
+	{
+		i = print_int(num);
+	}
+	return (0);
+}
 
 
 

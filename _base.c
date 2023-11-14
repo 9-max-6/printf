@@ -47,3 +47,4 @@ int _recurse_bin(unsigned int num)
 
 	return (count + 1);
 }
+
