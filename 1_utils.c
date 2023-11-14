@@ -1,5 +1,4 @@
 #include "main.h"
-char HEX_INT[] = "0123456789ABCDEF";
 
 /**
  * print_Hex - a function that prints ui in hexadecimal format

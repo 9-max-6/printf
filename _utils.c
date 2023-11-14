@@ -1,5 +1,4 @@
 #include "main.h"
-char hex_int[] = "0123456789abcdef";
 
 /**
  * print_positive_ui - a function to print unsigned integer

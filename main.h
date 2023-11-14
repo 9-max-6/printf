@@ -4,6 +4,9 @@
 
 #define BUFSIZE 1024
 
+#define HEX_INT "0123456789ABCDEF"
+#define hex_int "0123456789abcdef"
+
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -12,6 +15,8 @@
 
 int _printf(const char *format, ...);
 int _putchar(char c);
+int __non_print(char c, va_list _args);
+int __non_hex(char c);
 
 
 int print_char(va_list _args);
