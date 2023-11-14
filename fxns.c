@@ -99,13 +99,20 @@ int print_str(va_list _args)
 int print_ui(va_list _args)
 {
 	unsigned int num;
-	int i;
+	int k = 0;
 
 	num = va_arg(_args, unsigned int);
 
+	if (num == 0)
+	{
+		_putchar('0');
+		k++;
+		return (k);
+	}
 	if (num > 0)
 	{
-		i = print_int(num);
+		k += print_positive_int(num);
+		return (k);
 	}
 	return (0);
 }
