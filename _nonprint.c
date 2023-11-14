@@ -5,6 +5,7 @@ int __hex_print(int num);
  * chars converted to ascii
  * @_args: list of type va_list
  * @c: the special character.
+ * Return: the number of printed characters.
  */
 
 int __non_print(char c, va_list _args)
@@ -55,7 +56,7 @@ int __non_hex(char c)
 /**
  * __hex_print - a recursive function to print in hex
  * @num: integer value to print.
- * 
+ *
  * Return: the numbers of character printed.
  */
 
