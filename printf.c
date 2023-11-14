@@ -31,10 +31,18 @@ int _printf(const char *format, ...)
 			else if (format[i + 1] == 'c' || format[i + 1] == 's'
 					|| format[i + 1] == 'd' || format[i + 1] == 'i' || format[i + 1] == 'b' || format[i + 1] == 'u')
 			{
-				c = format[i + 1];
-				_chars = (*printing(c))(_args);
-				i++;
-				num_bytes += _chars;
+				if (format[i + 1] == 'S')
+				{
+					_chars += __non_print(format[i + 2], _args);
+					i += 2;
+				}
+				else 
+				{
+					c = format[i + 1];
+					_chars = (*printing(c))(_args);
+					i++;
+					num_bytes += _chars;
+				}
 			}
 			else
 			{
