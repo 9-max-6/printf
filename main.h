@@ -22,6 +22,8 @@ int print_positive_int(int num);
 int print_bin(va_list _args);
 int print_ui(va_list _args);
 int print_positive_ui(unsigned int num);
+int print_octal(va_list _args);
+int print_octal_ui(unsigned int num);
 /**
  * struct Ops - a structure with op-fn pairs
  * @spec: the specifier
