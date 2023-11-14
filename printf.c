@@ -10,10 +10,9 @@
 
 int _printf(const char *format, ...)
 {
-	int i;
 	va_list _args;
 	char c;
-	int _chars, num_bytes;
+	int _chars, num_bytes, i;
 
 	va_start(_args, format);
 	if (format == NULL)
