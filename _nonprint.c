@@ -30,6 +30,7 @@ int __non_print(char c, va_list _args)
 			}
 			num_bytes += __non_hex(c);
 			i++;
+		
 		}
 		_putchar(ptr[i]);
 		num_bytes++;
