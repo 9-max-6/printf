@@ -22,18 +22,21 @@ int __non_print(char c, va_list _args)
 		{
 			write(1, "\\", 1);
 			write(1, "x", 1);
-			num_bytes++;;
+			num_bytes +=2;
+
 			if (ptr[i] < 16)
 			{
 				write(1, "0", 1);
-				num_bytes++;;
+				num_bytes++;
 			}
 			num_bytes += __non_hex(c);
-			i++;
-		
+			
 		}
-		_putchar(ptr[i]);
-		num_bytes++;
+		else
+		{
+			write(1, &ptr[i], 1);
+			num_bytes++;
+		}
 	}
 
 	return (num_bytes);
@@ -68,13 +71,11 @@ int __hex_print(int num)
 {
 	int count = 0;
 
-	if (num / 16 != 0)
+	do
 	{
-		count += __hex_print(num / 16);
-	}
-	_putchar(HEX_INT[num % 16]);
-
-	return (count + 1);
+		_putchar(HEX_INT[num % 16]);
+		count++;
+		num /= 16;
+	} while (num != 0);
+	return count;
 }
-
-
